@@ -1,0 +1,92 @@
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: "Poppins", Arial, sans-serif;
+  margin: 0;
+  display: flex;
+  height: 100vh;
+}
+
+.wrap {
+  display: flex;
+  width: 100%;
+}
+
+.main-area {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+}
+
+h2 {
+  color: #ff3c3c;
+  text-align: center;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.search-bar input {
+  width: 60%;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background: #111;
+  color: #fff;
+  border: 1px solid #ff3c3c;
+}
+
+.usuarios-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.usuario-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 12px 15px;
+}
+
+.usuario-item .info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.usuario-item img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 2px solid #ff3c3c;
+}
+
+.usuario-item .nome {
+  font-weight: 600;
+}
+
+.usuario-item .email {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.usuario-item .acoes button {
+  background: #ff3c3c;
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.usuario-item .acoes button:hover {
+  background: #ff5555;
+}

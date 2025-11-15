@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detalhes do Chamado</title>
+  <link rel="stylesheet" href="css/sidebar.css" />
+  <link rel="stylesheet" href="css/adm-detalhechamado.css" />
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="sidebar">
+      <div class="sidebar-top">
+        <div class="hamburger">☰</div>
+        <div class="menu">
+          <ul>
+            <li onclick="window.location.href='adm-dashboard.html'">Chamados</li>
+            <li onclick="window.location.href='adm-usuarios.html'">Usuários</li>
+            <li class="active" onclick="window.location.href='adm-perfil.html'">Perfil</li>
+          </ul>
+        </div>
+      </div>
+      <div class="sidebar-footer">
+        <div class="user">
+          <img id="sidebarFoto" src="img/avatar-padrao.png" class="avatar" />
+          <div class="user-text">
+            <div id="sidebarName" class="name">Administrador</div>
+            <div id="sidebarRole" class="role">Administrador</div>
+          </div>
+        </div>
+        <button class="logout" onclick="sairSistema()">⏻ Sair</button>
+      </div>
+    </div>
+    <div class="main-area">
+      <button class="btn-voltar" onclick="window.history.back()">← Voltar</button>
+      <h2>🔎 Detalhes do Chamado</h2>
+      <div id="detalhesChamado" class="card">
+        Carregando informações...
+      </div>
+      <h3>Atualizar Chamado</h3>
+      <div class="card">
+        <label>Status:</label>
+        <select id="inputStatus">
+          <option value="Aberto">Aberto</option>
+          <option value="Em andamento">Em andamento</option>
+          <option value="Concluído">Concluído</option>
+          <option value="Fechado">Fechado</option>
+        </select>
+        <label>Prioridade:</label>
+        <select id="inputPrioridade">
+          <option value="Baixa">Baixa</option>
+          <option value="Média">Média</option>
+          <option value="Alta">Alta</option>
+          <option value="Crítica">Crítica</option>
+        </select>
+        <label>Solução Aplicada:</label>
+        <textarea id="inputSolucao" placeholder="Descreva a solução..."></textarea>
+        <label>Observações:</label>
+        <textarea id="inputObs" placeholder="Observações gerais..."></textarea>
+        <button class="btn-salvar" onclick="salvarAlteracoes()">
+          💾 Salvar Alterações
+        </button>
+      </div>
+    </div>
+  </div>
+  <script>
+    function sairSistema() {
+      localStorage.removeItem("usuarioLogado");
+      localStorage.removeItem("fotoPerfil");
+      window.location.href = "index.html";
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+      const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
+      const sidebarFoto = document.getElementById("sidebarFoto");
+      const sidebarName = document.getElementById("sidebarName");
+      const sidebarRole = document.getElementById("sidebarRole");
+      const fotoSalva = localStorage.getItem("fotoPerfil");
+      if (fotoSalva) {
+        sidebarFoto.src = fotoSalva;
+      } else if (usuarioLogado?.FotoPerfil) {
+        sidebarFoto.src = usuarioLogado.FotoPerfil;
+      }
+      if (usuarioLogado) {
+        sidebarName.textContent = usuarioLogado.Nome || "Administrador";
+        sidebarRole.textContent = usuarioLogado.Acesso || "Administrador";
+      } else {
+        sidebarName.textContent = "Administrador";
+        sidebarRole.textContent = "Offline";
+      }
+    });
+  </script>
+  <script src="js/sidebar.js"></script>
+  <script src="js/adm-detalhechamado.js"></script>
+</body>
+
+</html>

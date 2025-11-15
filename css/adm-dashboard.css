@@ -1,0 +1,109 @@
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: "Poppins", Arial, sans-serif;
+  margin: 0;
+  display: flex;
+  height: 100vh;
+}
+.wrap {
+  display: flex;
+  width: 100%;
+}
+.main-area {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+}
+h2 {
+  text-align: center;
+  color: #ff3c3c;
+  margin-bottom: 25px;
+}
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+  justify-content: center;
+}
+.filters select,
+.filters button {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+}
+.filters select {
+  background: #111;
+  color: #fff;
+}
+.filters button {
+  background: #ff3c3c;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+.filters button:hover {
+  background: #ff5555;
+}
+.chamados-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.chamado-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.chamado-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+}
+.chamado-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.chamado-header h3 {
+  color: #ff3c3c;
+  font-size: 18px;
+  margin: 0;
+}
+.chamado-body {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #ccc;
+}
+.status {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 13px;
+}
+.status.Aberto {
+  color: #ffae00;
+}
+.status {
+  color: #ffd700;
+}
+.status.Concluído {
+  color: #00ff99;
+}
+.btn-chat {
+  background: #ff3c3c;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-size: 13px;
+}
+.btn-chat:hover {
+  background: #ff5555;
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - Administrador</title>
+  <link rel="stylesheet" href="css/sidebar.css" />
+  <link rel="stylesheet" href="css/adm-dashboard.css" />
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="sidebar">
+      <div class="sidebar-top">
+        <div class="hamburger">☰</div>
+        <div class="menu">
+          <ul>
+            <li class="active" onclick="window.location.href='adm-dashboard.html'">Chamados</li>
+            <li onclick="window.location.href='adm-usuarios.html'">Usuários</li>
+            <li onclick="window.location.href='adm-perfil.html'">Perfil</li>
+          </ul>
+        </div>
+      </div>
+      <div class="sidebar-footer">
+        <div class="user">
+          <img id="sidebarFoto" src="img/avatar-padrao.png" class="avatar" alt="Foto do usuário" />
+          <div class="user-text">
+            <div id="sidebarName" class="name">Administrador</div>
+            <div id="sidebarRole" class="role">Administrador</div>
+          </div>
+        </div>
+        <button class="logout" onclick="sairSistema()">
+          ⏻ Sair
+        </button>
+      </div>
+    </div>
+    <div class="main-area">
+      <h2>📋 Chamados Abertos</h2>
+      <div class="filters">
+        <select id="filtroStatus">
+          <option value="">Todos os Status</option>
+          <option value="Aberto">Aberto</option>
+          <option value="Em andamento">Em andamento</option>
+          <option value="Concluído">Concluído</option>
+        </select>
+        <select id="filtroPrioridade">
+          <option value="">Todas as Prioridades</option>
+          <option value="Baixa">Baixa</option>
+          <option value="Média">Média</option>
+          <option value="Alta">Alta</option>
+          <option value="Crítica">Crítica</option>
+        </select>
+        <button id="btnFiltrar" class="btn-filtrar">Filtrar</button>
+      </div>
+      <div id="tabelaChamados" class="chamados-lista">
+        <p style="text-align:center; color:#aaa;">Carregando chamados...</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    function sairSistema() {
+      localStorage.removeItem("usuarioLogado");
+      localStorage.removeItem("fotoPerfil");
+      window.location.href = "index.html";
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+      const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
+      const sidebarFoto = document.getElementById("sidebarFoto");
+      const sidebarName = document.getElementById("sidebarName");
+      const sidebarRole = document.getElementById("sidebarRole");
+      const fotoSalva = localStorage.getItem("fotoPerfil");
+      if (fotoSalva) {
+        sidebarFoto.src = fotoSalva;
+      } else if (usuarioLogado?.FotoPerfil) {
+        sidebarFoto.src = usuarioLogado.FotoPerfil;
+      }
+      if (usuarioLogado) {
+        sidebarName.textContent = usuarioLogado.Nome || "Administrador";
+        sidebarRole.textContent = usuarioLogado.Acesso || "Administrador";
+      } else {
+        sidebarName.textContent = "Administrador";
+        sidebarRole.textContent = "Offline";
+      }
+    });
+  </script>
+  <script src="js/sidebar.js"></script>
+  <script src="js/adm-dashboard.js"></script>
+</body>
+
+</html>

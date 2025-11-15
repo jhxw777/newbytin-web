@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Chatbot Newbytin</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body style="background-color: black;">
+
+  <div class="login-container">
+    <div class="login-box">
+
+      <img src="img/logo1.png" alt="Logo Chatbot Newbytin" class="logo">
+
+
+      <form>
+        <div class="input-group">
+          <span class="icon">📧</span>
+          <input type="email" placeholder="E-mail" id="email" required>
+        </div>
+
+        <div class="input-group">
+          <span class="icon">🔒</span>
+          <input type="password" placeholder="Senha" id="senha" required>
+          <span class="toggle-password" onclick="toggleSenha()">👁️</span>
+        </div>
+
+        <p class="cadastro-text">
+          Não tem uma conta?
+          <a href="cadastro.html">Cadastre-se</a>
+        </p>
+
+
+        <button type="submit" class="btn-acessar">Acessar</button>
+
+
+      </form>
+      <!-- Container de Notificações -->
+      <div id="notificacao-container"></div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>

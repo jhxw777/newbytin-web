@@ -1,0 +1,160 @@
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: "Poppins", Arial, sans-serif;
+  margin: 0;
+  display: flex;
+  height: 100vh;
+}
+
+.wrap {
+  display: flex;
+  width: 100%;
+}
+
+.sidebar {
+  width: 250px;
+  background: #0a0a0a;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  padding: 12px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.75);
+  border-left: 3px solid transparent;
+  transition: all 0.3s ease;
+  font-size: 15px;
+  letter-spacing: 0.3px;
+}
+
+.menu li:hover {
+  color: #ff3c3c;
+}
+
+.menu li.active {
+  color: #fff;
+  border-left: 3px solid #ff3c3c;
+}
+
+.sidebar-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 15px;
+  margin-top: 20px;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ff3c3c;
+  background-color: #111;
+  box-shadow: 0 0 8px rgba(255, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.avatar:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(255, 0, 0, 0.5);
+}
+
+.user-text .name {
+  font-weight: 600;
+  color: #fff;
+  font-size: 14px;
+}
+
+.user-text .role {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.logout {
+  margin-top: 15px;
+  padding: 10px 15px;
+  background: #ff3333;
+  border-radius: 8px;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.logout:hover {
+  background: #ff5555;
+  transform: scale(1.05);
+}
+
+.logout span {
+  font-size: 16px;
+}
+
+.main-area {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+}
+
+h2 {
+  text-align: center;
+  color: #ff3c3c;
+}
+
+.chamados-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.chamado-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.chamado-item:hover {
+  transform: scale(1.02);
+}
+
+.status-andamento {
+  color: #ffd700;
+  font-weight: bold;
+}
+
+.status-concluido {
+  color: #00ff99;
+  font-weight: bold;
+}
+
+.detalhes {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 15px;
+  margin-top: 30px;
+}

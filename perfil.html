@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil - Chatbot Newbytin</title>
+  <link rel="stylesheet" href="css/perfil.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="sidebar">
+      <div>
+        <div class="hamburger">☰</div>
+        <div class="menu">
+          <ul>
+            <li onclick="window.location.href='dashboard.html'">chatbot</li>
+            <li onclick="window.location.href='chamados.html'">Chamados</li>
+            <li onclick="window.location.href='notificacoes.html'">Notificações</li>
+            <li class="active" onclick="window.location.href='perfil.html'">Perfil</li>
+          </ul>
+        </div>
+      </div>
+      <div class="sidebar-footer">
+        <div class="user">
+          <img id="sidebarFoto" class="avatar" src="img/avatar-padrao.png" alt="Foto do usuário">
+          <div class="user-text">
+            <div id="sidebarName" class="name">Carregando...</div>
+            <div id="sidebarRole" class="role">Carregando...</div>
+          </div>
+        </div>
+        <div class="logout" onclick="sairSistema()">
+          <span>⏻</span> Sair
+        </div>
+      </div>
+    </div>
+    <div class="main-area">
+      <div class="perfil-header">
+        <img src="img/logo1.png" alt="Chatbot Newbytin" class="logo">
+        <h2>Perfil do Cliente</h2>
+      </div>
+      <div class="perfil-info">
+        <div class="perfil-foto">
+          <img id="fotoPerfil" src="img/avatar-padrao.png" alt="Foto do perfil">
+          <label for="uploadFoto" class="btn-upload">Alterar foto</label>
+          <input type="file" id="uploadFoto" accept="image/*" style="display:none">
+        </div>
+        <div class="perfil-dados">
+          <h3 id="perfilNome">Carregando...</h3>
+          <p id="perfilData">Carregando...</p>
+        </div>
+      </div>
+      <div class="estatisticas">
+        <div class="dados">
+          <p><strong id="totalChamados">0</strong><br>Chamados realizados</p>
+          <p><strong id="concluidosChamados">0</strong><br>Concluídos</p>
+          <p><strong id="pendentesChamados">0</strong><br>Pendentes</p>
+        </div>
+        <div class="graficos">
+          <canvas id="graficoPizza"></canvas>
+          <canvas id="graficoBarras"></canvas>
+        </div>
+      </div>
+      <div class="config-sections">
+        <details>
+          <summary>Conta</summary>
+          <div class="section-content">
+            <label>Nome:</label>
+            <input type="text" id="campoNome"><br>
+            <label>E-mail:</label>
+            <input type="email" id="campoEmail"><br>
+            <label>Nova senha:</label>
+            <input type="password" id="campoSenha" placeholder="Digite nova senha"><br>
+            <button onclick="salvarAlteracoes()">Salvar alterações</button>
+            <hr>
+            <button class="danger" onclick="excluirConta()">Excluir conta</button>
+          </div>
+        </details>
+        <details>
+          <summary>Mensagens</summary>
+          <div class="section-content">
+            <p><strong>Última mensagem do suporte:</strong> ⚠️ Nenhuma mensagem ainda!</p>
+            <label><input type="checkbox" checked> Receber respostas automáticas do chatbot</label><br>
+            <label><input type="checkbox"> Priorizar contato humano quando disponível</label>
+          </div>
+        </details>
+        <details>
+          <summary>Notificações</summary>
+          <div class="section-content">
+            <h4>Preferências</h4>
+            <label><input type="checkbox" checked> Notificações por e-mail</label><br>
+            <label><input type="checkbox" checked> Notificações no sistema</label><br>
+            <label><input type="checkbox"> Notificações por WhatsApp</label>
+            <hr>
+            <h4>Histórico</h4>
+            <div id="historicoConcluidos"></div>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+  <script src="js/perfil.js"></script>
+  <script>
+    async function sairSistema() {
+      await fetch("http://localhost:5287/api/Login/logout", { method: "POST" });
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+/* ======== ESTILOS GERAIS ======== */
+
+body {
+  background: #000;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #fff;
+}
+
+.main-area {
+  padding: 30px;
+  margin-left: 260px;
+}
+
+/* Botão voltar */
+.btn-voltar {
+  background: #222;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 1px solid #444;
+  color: #fff;
+  cursor: pointer;
+}
+
+h2,
+h3 {
+  color: #ff4444;
+}
+
+/* Card preto */
+.card {
+  background: #111;
+  border: 1px solid #333;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* Texto forte */
+.card span {
+  color: #ff4444;
+}
+
+/* Inputs */
+select,
+textarea {
+  width: 100%;
+  background: #0f0f0f;
+  border: 1px solid #ff4444;
+  padding: 10px;
+  border-radius: 6px;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+textarea {
+  height: 90px;
+}
+
+/* Botão salvar */
+.btn-salvar {
+  width: 100%;
+  padding: 12px;
+  background: #ff3333;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn-salvar:hover {
+  opacity: 0.8;
+}

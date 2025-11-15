@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notificações - Chatbot Newbytin</title>
+  <link rel="stylesheet" href="css/notificacoes.css">
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="sidebar">
+      <div>
+        <div class="hamburger">☰</div>
+        <div class="menu">
+          <ul>
+            <li onclick="window.location.href='dashboard.html'">chatbot</li>
+            <li onclick="window.location.href='chamados.html'">Chamados</li>
+            <li onclick="window.location.href='notificacoes.html'">Notificações</li>
+            <li onclick="window.location.href='perfil.html'">Perfil</li>
+          </ul>
+        </div>
+      </div>
+      <div class="sidebar-footer">
+        <div class="user">
+          <img id="sidebarFoto" src="avatar-padrao.png" class="avatar" alt="Foto do usuário">
+          <div class="user-text">
+            <div class="name">Jonathan</div>
+            <div class="role">Cliente</div>
+          </div>
+        </div>
+        <div class="logout" onclick="sairSistema()">
+          <span>⏻</span> Sair
+        </div>
+      </div>
+    </div>
+    <script>
+      function sairSistema() {
+        localStorage.removeItem("usuarioLogado");
+        localStorage.removeItem("fotoPerfil");
+        window.location.href = "index.html";
+      }
+      document.addEventListener("DOMContentLoaded", () => {
+        const sidebarFoto = document.getElementById("sidebarFoto");
+        const fotoSalva = localStorage.getItem("fotoPerfil");
+        if (fotoSalva) sidebarFoto.src = fotoSalva;
+      });
+    </script>
+    <div class="main-area">
+      <h2>🔔 Notificações</h2>
+      <div id="listaNotificacoes" class="notificacoes-lista"></div>
+      <div class="detalhe">
+        <h3>Detalhes</h3>
+        <p id="textoDetalhe">Selecione uma notificação para ver mais informações.</p>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const sidebarFoto = document.getElementById("sidebarFoto");
+        const fotoSalva = localStorage.getItem("fotoPerfil");
+        if (sidebarFoto && fotoSalva) {
+          sidebarFoto.src = fotoSalva;
+        }
+      });
+    </script>
+
+    <script src="js/notificacoes.js"></script>
+    <script>
+      function updateSidebarFromLocalStorage() {
+        const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
+        const sidebarFoto = document.getElementById("sidebarFoto");
+        const sidebarName = document.querySelector(".sidebar .user-text .name") || document.querySelector(".name");
+        if (!usuarioLogado) {
+          return;
+        }
+        if (sidebarFoto && usuarioLogado.foto) sidebarFoto.src = usuarioLogado.foto;
+        if (sidebarName && usuarioLogado.nome) sidebarName.textContent = usuarioLogado.nome;
+      }
+      document.addEventListener("DOMContentLoaded", updateSidebarFromLocalStorage);
+    </script>
+</body>
+
+</html>

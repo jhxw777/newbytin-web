@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Suporte Técnico - Chatbot Newbytin</title>
+  <link rel="stylesheet" href="css/chat-suporte.css" />
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="sidebar">
+      <div>
+        <div class="hamburger">☰</div>
+        <div class="menu">
+          <ul>
+            <li onclick="window.location.href='dashboard.html'">Chatbot</li>
+            <li onclick="window.location.href='chamados.html'">Chamados</li>
+            <li class="active" onclick="window.location.href='chat-suporte.html'">Suporte</li>
+            <li onclick="window.location.href='notificacoes.html'">Notificações</li>
+            <li onclick="window.location.href='perfil.html'">Perfil</li>
+          </ul>
+        </div>
+      </div>
+      <div class="sidebar-footer">
+        <div class="user">
+          <img id="sidebarFoto" src="img/avatar-padrao.png" class="avatar" alt="Foto do usuário" />
+          <div class="user-text">
+            <div id="sidebarName" class="name">Usuário</div>
+            <div id="sidebarRole" class="role">Cliente</div>
+          </div>
+        </div>
+        <div class="logout" onclick="sairSistema()">
+          <span>⏻</span> Sair
+        </div>
+      </div>
+    </div>
+    <div class="main-area">
+      <div class="chat-wrapper">
+        <div class="chat-panel">
+          <div class="chat-header">
+            <img id="fotoAtendente" src="img/avatar-padrao.png" class="avatar atendente" alt="Atendente">
+            <div class="atendente-info">
+              <h3 id="nomeAtendente">Atendimento com Suporte</h3>
+              <span class="status-online">🟢 Online</span>
+            </div>
+            <img src="img/logo1.png" alt="Logo" class="logo" />
+          </div>
+          <div id="chatMessages" class="chat-messages">
+            <p style="text-align:center; color:#888;">Inicie uma conversa com o suporte digitando abaixo 👇</p>
+          </div>
+          <div class="chat-footer">
+            <input type="text" id="msgInput" placeholder="Digite sua mensagem..." />
+            <button id="btnEnviar">Enviar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/chat-suporte.js"></script>
+  <script>
+    function sairSistema() {
+      localStorage.removeItem("usuarioLogado");
+      window.location.href = "index.html";
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+      const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
+      if (usuario) {
+        document.getElementById("sidebarName").textContent = usuario.Nome || usuario.nome;
+        document.getElementById("sidebarRole").textContent = usuario.Acesso || "Cliente";
+        if (usuario.FotoPerfil) document.getElementById("sidebarFoto").src = usuario.FotoPerfil;
+      }
+    });
+  </script>
+  <script>
+    function updateSidebarFromLocalStorage() {
+      const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
+      const sidebarFoto = document.getElementById("sidebarFoto");
+      const sidebarName = document.querySelector(".sidebar .user-text .name") || document.querySelector(".name");
+      if (!usuarioLogado) {
+        return;
+      }
+      if (sidebarFoto && usuarioLogado.foto) sidebarFoto.src = usuarioLogado.foto;
+      if (sidebarName && usuarioLogado.nome) sidebarName.textContent = usuarioLogado.nome;
+    }
+    document.addEventListener("DOMContentLoaded", updateSidebarFromLocalStorage);
+  </script>
+</body>
+
+</html>

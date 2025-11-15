@@ -1,0 +1,243 @@
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: "Poppins", Arial, sans-serif;
+  margin: 0;
+  display: flex;
+  height: 100vh;
+}
+.wrap {
+  display: flex;
+  width: 100%;
+}
+.sidebar {
+  width: 250px;
+  background: #0a0a0a;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.menu li {
+  padding: 12px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.75);
+  border-left: 3px solid transparent;
+  transition: all 0.3s ease;
+  font-size: 15px;
+  letter-spacing: 0.3px;
+}
+.menu li:hover {
+  color: #ff3c3c;
+}
+.menu li.active {
+  color: #fff;
+  border-left: 3px solid #ff3c3c;
+}
+.sidebar-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 15px;
+  margin-top: 20px;
+}
+.user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ff3c3c;
+  background-color: #111;
+  box-shadow: 0 0 8px rgba(255, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+.avatar:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(255, 0, 0, 0.5);
+}
+.user-text .name {
+  font-weight: 600;
+  color: #fff;
+  font-size: 14px;
+}
+.user-text .role {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+}
+.logout {
+  margin-top: 15px;
+  padding: 10px 15px;
+  background: #ff3333;
+  border-radius: 8px;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 14px;
+}
+.logout:hover {
+  background: #ff5555;
+  transform: scale(1.05);
+}
+.logout span {
+  font-size: 16px;
+}
+.main-area {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+}
+.perfil-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  width: 140px;
+  opacity: 0.9;
+}
+.perfil-info {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  gap: 40px;
+}
+.perfil-foto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #111;
+  border-radius: 12px;
+  padding: 20px;
+  width: 180px;
+  height: 220px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+}
+.perfil-foto img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 3px solid #ff3333;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+.btn-upload {
+  background-color: #ff3333;
+  color: #fff;
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn-upload:hover {
+  background-color: #ff5555;
+}
+.perfil-dados h3 {
+  font-size: 22px;
+  margin: 0;
+}
+.estatisticas {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: center;
+}
+.dados {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.dados p {
+  font-size: 16px;
+}
+.dados strong {
+  font-size: 26px;
+  color: #ff7b00;
+}
+.graficos {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+canvas {
+  width: 280px !important;
+  height: 250px !important;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 10px;
+}
+.config-sections {
+  margin-top: 40px;
+}
+details {
+  background: rgba(255, 255, 255, 0.05);
+  margin-bottom: 12px;
+  border-radius: 10px;
+  padding: 10px;
+}
+summary {
+  font-weight: bold;
+  cursor: pointer;
+  color: #ff3333;
+  font-size: 15px;
+}
+summary:hover {
+  color: #fff;
+}
+.section-content {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #111;
+  border-radius: 10px;
+}
+.section-content {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #111;
+  border-radius: 10px;
+}
+.section-content label {
+  color: #ddd;
+}
+.section-content input,
+.section-content button {
+  margin-top: 5px;
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+}
+.section-content button {
+  background-color: #ff3333;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.section-content button:hover {
+  background-color: #ff5555;
+}
+.section-content .danger {
+  background-color: #660000;
+}
+.info-text {
+  color: #aaa;
+  font-size: 12px;
+  margin-top: 10px;
+}
