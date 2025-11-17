@@ -1,6 +1,0 @@
-@backendNewbytin_HostAddress = http://localhost:5287
-
-GET {{backendNewbytin_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
