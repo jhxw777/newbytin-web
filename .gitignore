@@ -1,0 +1,12 @@
+bin/
+obj/
+.vs/
+TestResults/
+*.user
+*.suo
+*.cache
+logs/
+wwwroot/
+node_modules/
+dist/
+.env
